@@ -134,10 +134,22 @@ function(Xmat=NA,Ymat=NA,feature_table_file,parentoutput_dir=NA,class_labels_fil
     parentoutput_dir=getwd()
   }
   
-  if(is.na(Xmat)==FALSE){
-    
-    feature_table_file=NA
+  print(dim(Xmat))
+  print(is.na(Xmat)==FALSE)
+  print("-------------------")
+  print(Xmat)
+  
+  tryCatch(
+  {
+    if(is.na(Xmat)==FALSE){
+      
+      feature_table_file=NA
+    },
+  } error=function(e) {
+    print(e)
+    message(e)
   }
+  )
   if(is.na(Ymat)==FALSE){
     
     class_labels_file=NA
